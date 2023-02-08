@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- [1.Create Component] -->
+    <!--     
+    <script type=text/babel>
+      const Welcome = () => <h1 className="message"> Hello New, User </h1>;
+      ReactDOM.render(<Welcome />, document.getElementById("root"));
+    </script> 
+ -->
+
+    <!-- [2.Accessing The Props] -->
+    <!-- 
+    <script type="text/babel">
+      const Welcome = (props) => {
+        const { name, greeting } = props;
+        return (
+          <h1 className="message">
+            {greeting}, {name}
+          </h1>
+        );
+      };
+      ReactDOM.render(
+        <Welcome name="Rohan" greeting="Have A Nice Day" />,
+        document.getElementById("root")
+      );
+    </script>
+ -->
+
+    <!-- [3.Reusable Component] -->
+    <!-- 
+<script type=text/babel>
+    const Welcome = (props) => {
+        const {name, greeting} = props;
+        return <h1 className="message"> {greeting}, {name}</h1>
+    };
+    ReactDOM.render(
+        <div>
+            <Welcome name="Rohan" greeting="Have A Good Day!" />
+            <Welcome name="Rashii" greeting="Are You Fine!" />            
+        </div>, document.getElementById("root")
+    );
+</script>
+ -->
+
+    <!-- [4.Composable Component] -->
+
+    <script type="text/babel">
+      const Welcome = (props) => {
+        const { name, greeting } = props;
+        return (
+          <h1 className="message">
+            {name}, {greeting}
+          </h1>
+        );
+      };
+
+      const Passage = () => (
+        <div>
+          <Welcome name="Component" greeting="are composable" />
+          <Welcome
+            name="We can include a Component(Passage)"
+            greeting="inside another Component(Welcome)"
+          />
+        </div>
+      );
+
+      ReactDOM.render(<Passage />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
